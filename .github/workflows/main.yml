@@ -62,9 +62,19 @@ jobs:
         id: print_input
         run: echo " ${{ steps.get_version.outputs.version }} "
         
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          repository: Vibaswan/Gihub_Actions_and_pyTest
-          event-type: triggered-from-changes
+      - name: skip step
+        if: 1 > 4
+        id: skip_test
+        run: echo " hello ! i am here bro"
+      
+      - name: printing previous step output
+        run: |
+          echo "output output == ${{steps.skip_test.outputs}}"
+          echo "output conclusion == ${{steps.skip_test.conclusion}}" 
+      
+      #- name: Repository Dispatch
+      #  uses: peter-evans/repository-dispatch@v1
+      #  with:
+      #    token: ${{ secrets.ACCESS_TOKEN }}
+      #    repository: Vibaswan/Gihub_Actions_and_pyTest
+      #    event-type: triggered-from-changes
