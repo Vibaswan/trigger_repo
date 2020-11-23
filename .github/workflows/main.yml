@@ -9,7 +9,7 @@ on:
     branches: [ main ]
   pull_request: 
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: "*/2 * * * *"
   workflow_dispatch:
     inputs:
       name:
