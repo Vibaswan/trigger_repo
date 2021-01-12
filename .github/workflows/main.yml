@@ -20,6 +20,8 @@ on:
         description: 'location'
         required: false
         default: 'The Octoverse'
+env:
+  name: 'yooo-hoooo' 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -54,7 +56,7 @@ jobs:
         run: |
           echo "Hello ${{ github.event.inputs.name }}!"
           echo "- in ${{ github.event.inputs.home }}!"
-          echo "arigato gosaimash ${{ github.workflow_dispatch.inputs.name.default }}!!"
+          echo "arigato gosaimash ${{ env.name }}!!"
       
       - name: Dump GitHub context
         env:
