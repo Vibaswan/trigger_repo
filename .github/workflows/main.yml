@@ -15,11 +15,11 @@ on:
       name:
         description: 'Person to greet'
         required: true
-        default: 'Mona the Octocat'
+        default: 'Vibaswan'
       home:
         description: 'location'
         required: false
-        default: 'The Octoverse'
+        default: 'Github server'
 env:
   name: 'yooo-hoooo' 
 
@@ -82,12 +82,12 @@ jobs:
           echo "output output == ${{steps.skip_test.outcome}}"
           echo "output conclusion == ${{steps.skip_test.conclusion}}" 
       
-      #- name: Repository Dispatch
-      #  uses: peter-evans/repository-dispatch@v1
-      #  with:
-      #    token: ${{ secrets.ACCESS_TOKEN }}
-      #    repository: Vibaswan/Gihub_Actions_and_pyTest
-      #    event-type: triggered-from-changes
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+         token: ${{ secrets.ACCESS_TOKEN }}
+         repository: Vibaswan/Gihub_Actions_and_pyTest
+         event-type: triggered-from-changes
       
   job2:
     needs: build
